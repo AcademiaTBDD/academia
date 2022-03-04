@@ -1,0 +1,31 @@
+version: '3.1'
+services:
+  # app:
+  #   container_name: academia_container
+  #   image: academia
+  #   build: ./
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     - postgresqldb
+  postgresqldb:
+    container_name: bd_container
+    image: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=academiadb
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=academia@develop.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgresqldb
