@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RepAluno extends JpaRepository<Academia, Long> {
-    
+public interface RepAluno extends JpaRepository<Aluno, Long> {
+
 }

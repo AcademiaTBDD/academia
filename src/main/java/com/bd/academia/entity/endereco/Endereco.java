@@ -58,9 +58,9 @@ public class Endereco extends BaseEntity {
     @Column(nullable = false, length = 2)
     private String uf;
 
-    @Getter
-    @Setter
-    @JsonIgnore
-    @OneToMany(mappedBy = "endereco", fetch = FetchType.LAZY)
-    private List<Academia> academias;
+    // @Getter
+    // @Setter
+    // @JsonIgnore
+    // @OneToMany(mappedBy = "endereco", fetch = FetchType.LAZY)
+    // private List<Academia> academias;
 }

@@ -40,9 +40,9 @@ public class EstoqueProduto {
     @Column(nullable = false, length = 50)
     private Integer quantidade;
 
-    @Getter
-    @Setter
-    @OneToMany(mappedBy = "estoqueProduto", fetch = FetchType.LAZY)
-    private List<Academia> academias;
+    // @Getter
+    // @Setter
+    // @OneToMany(mappedBy = "estoqueProduto", fetch = FetchType.LAZY)
+    // private List<Academia> academias;
     
 }

@@ -68,10 +68,10 @@ public class Professor {
 
      //fazer a foreign key idendereco
 
-    @Getter
-    @Setter
-    @OneToMany(mappedBy = "professor", fetch = FetchType.LAZY)
-    private List<Academia> academias;
+    // @Getter
+    // @Setter
+    // @OneToMany(mappedBy = "professor", fetch = FetchType.LAZY)
+    // private List<Academia> academias;
     
 }
     

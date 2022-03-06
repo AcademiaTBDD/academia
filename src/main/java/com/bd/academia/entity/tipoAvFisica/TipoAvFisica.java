@@ -38,9 +38,9 @@ public class TipoAvFisica {
     @Column(nullable = false, length = 50)
     private String descricao;
 
-    @Getter
-    @Setter
-    @OneToMany(mappedBy = "tipoAvFisica", fetch = FetchType.LAZY)
-    private List<Academia> academias;
+    // @Getter
+    // @Setter
+    // @OneToMany(mappedBy = "tipoAvFisica", fetch = FetchType.LAZY)
+    // private List<Academia> academias;
     
 }

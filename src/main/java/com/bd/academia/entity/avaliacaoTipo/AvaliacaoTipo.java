@@ -39,9 +39,9 @@ public class AvaliacaoTipo {
     @Column(nullable = false, length = 50)
     private String valor;
 
-    @Getter
-    @Setter
-    @OneToMany(mappedBy = "avaliacaoTipo", fetch = FetchType.LAZY)
-    private List<Academia> academias;
+    // @Getter
+    // @Setter
+    // @OneToMany(mappedBy = "avaliacaoTipo", fetch = FetchType.LAZY)
+    // private List<Academia> academias;
     
 }
