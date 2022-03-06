@@ -26,7 +26,7 @@ import lombok.Setter;
 @Table(name = "controleEntrada")
 @AllArgsConstructor
 @NoArgsConstructor
-public class controleEntrada {
+public class ControleEntrada {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

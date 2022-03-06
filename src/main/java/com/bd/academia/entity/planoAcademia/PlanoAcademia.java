@@ -27,7 +27,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class planoAcademia {
+public class PlanoAcademia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

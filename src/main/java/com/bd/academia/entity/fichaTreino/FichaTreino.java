@@ -26,7 +26,7 @@ import lombok.Setter;
 @Table(name = "fichaTreino")
 @AllArgsConstructor
 @NoArgsConstructor
-public class fichaTreino {
+public class FichaTreino {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
