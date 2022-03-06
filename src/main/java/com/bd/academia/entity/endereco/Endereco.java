@@ -13,6 +13,8 @@ import javax.persistence.Table;
 
 import com.bd.academia.core.entity.BaseEntity;
 import com.bd.academia.entity.academia.Academia;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,13 +25,14 @@ import lombok.Setter;
 @Table(name = "endereco")
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Endereco extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     private long idEndereco;
-    
+
     @Getter
     @Setter
     @Column(nullable = false, length = 50)
@@ -42,7 +45,7 @@ public class Endereco extends BaseEntity {
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50 )
+    @Column(nullable = false, length = 50)
     private String bairro;
 
     @Getter
@@ -57,6 +60,7 @@ public class Endereco extends BaseEntity {
 
     @Getter
     @Setter
+    @JsonIgnore
     @OneToMany(mappedBy = "endereco", fetch = FetchType.LAZY)
     private List<Academia> academias;
 }
