@@ -46,9 +46,9 @@ public class PlanoAcademia {
     private String tipoPlano;
 
 
-    @Getter
-    @Setter
-    @OneToMany(mappedBy = "planoAcademia", fetch = FetchType.LAZY)
-    private List<Academia> academias;
+    // @Getter
+    // @Setter
+    // @OneToMany(mappedBy = "planoAcademia", fetch = FetchType.LAZY)
+    // private List<Academia> academias;
     
 }

@@ -44,9 +44,9 @@ public class ControleEntrada {
     @Column(nullable = false, length = 50)
     private Timestamp dataHoraEntrada;
 
-    @Getter
-    @Setter
-    @OneToMany(mappedBy = "controleEntrada", fetch = FetchType.LAZY)
-    private List<Academia> academias;
+    // @Getter
+    // @Setter
+    // @OneToMany(mappedBy = "controleEntrada", fetch = FetchType.LAZY)
+    // private List<Academia> academias;
     
 }

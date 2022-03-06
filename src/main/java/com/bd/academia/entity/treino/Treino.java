@@ -41,9 +41,9 @@ public class Treino {
 
      //fazer a chave composta
 
-    @Getter
-    @Setter
-    @OneToMany(mappedBy = "treino", fetch = FetchType.LAZY)
-    private List<Academia> academias;
+    // @Getter
+    // @Setter
+    // @OneToMany(mappedBy = "treino", fetch = FetchType.LAZY)
+    // private List<Academia> academias;
     
 }

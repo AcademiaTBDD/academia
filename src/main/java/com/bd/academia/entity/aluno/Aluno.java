@@ -63,9 +63,9 @@ public class Aluno {
 
      //fazer a foreign key idendereco e idplano
 
-    @Getter
-    @Setter
-    @OneToMany(mappedBy = "aluno", fetch = FetchType.LAZY)
-    private List<FichaTreino> fichaTreino;
+    // @Getter
+    // @Setter
+    // @OneToMany(mappedBy = "aluno", fetch = FetchType.LAZY)
+    // private List<FichaTreino> fichaTreino;
     
 }

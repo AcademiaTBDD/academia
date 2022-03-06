@@ -41,9 +41,9 @@ public class AvaliacaoFisica {
 
      //fazer a chave estrangeira idAluno
 
-    @Getter
-    @Setter
-    @OneToMany(mappedBy = "avaliacaoFisica", fetch = FetchType.LAZY)
-    private List<Academia> academias;
+    // @Getter
+    // @Setter
+    // @OneToMany(mappedBy = "avaliacaoFisica", fetch = FetchType.LAZY)
+    // private List<Academia> academias;
     
 }
