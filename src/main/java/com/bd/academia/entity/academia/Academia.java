@@ -1,15 +1,21 @@
 package com.bd.academia.entity.academia;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.bd.academia.core.entity.BaseEntity;
+import com.bd.academia.entity.estoqueProduto.Estoque_Produto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.bd.academia.entity.endereco.Endereco;
 
 import lombok.AllArgsConstructor;
@@ -48,4 +54,11 @@ public class Academia extends BaseEntity{
     @ManyToOne
     @JoinColumn(name = "id_endereco", nullable = false)
     private Endereco endereco;
+
+
+    @Getter
+    @Setter
+    @JsonIgnore
+    @OneToMany(mappedBy = "academia", fetch = FetchType.LAZY)
+    private List<Estoque_Produto> estoque_Produtos;
 }
