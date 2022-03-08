@@ -29,7 +29,7 @@ public class ServTipoAvFisica {
     }
 
     public TipoAvFisica atualizar(TipoAvFisica tipoAvFisica) {
-        validaTipoAvFisicaById(tipoAvFisica.getIdTipoAvFisica());
+        validaTipoAvFisicaById(tipoAvFisica.getId_tipo_av());
 
         return cadastrar(tipoAvFisica);
     }
