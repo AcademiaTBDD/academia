@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import com.bd.academia.core.entity.BaseEntity;
 import com.bd.academia.entity.estoqueProduto.Estoque_Produto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.bd.academia.entity.controleEntrada.ControleEntrada;
 import com.bd.academia.entity.endereco.Endereco;
 
 import lombok.AllArgsConstructor;
@@ -61,4 +62,11 @@ public class Academia extends BaseEntity{
     @JsonIgnore
     @OneToMany(mappedBy = "academia", fetch = FetchType.LAZY)
     private List<Estoque_Produto> estoque_Produtos;
+
+
+    @Getter
+    @Setter
+    @JsonIgnore
+    @OneToMany(mappedBy = "academia", fetch = FetchType.LAZY)
+    private List<ControleEntrada> controle_Entrada;
 }

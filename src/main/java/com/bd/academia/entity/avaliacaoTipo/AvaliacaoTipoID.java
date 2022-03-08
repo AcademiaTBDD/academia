@@ -1,8 +1,6 @@
-package com.bd.academia.entity.estoqueProduto;
+package com.bd.academia.entity.avaliacaoTipo;
 
 import java.io.Serializable;
-
-
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -18,15 +16,15 @@ import lombok.Setter;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 
 
+public class AvaliacaoTipoID  implements Serializable{
 
-public class Estoque_ProdutoId implements Serializable{
-    
-    
-    @EqualsAndHashCode.Include
-    @Getter
-    private Long id_produto;
 
     @EqualsAndHashCode.Include
     @Getter
-    private Long id_academia;
+    private Long id_avaliacao;
+
+    @EqualsAndHashCode.Include
+    @Getter
+    private Long id_tipo_av;
+
 }

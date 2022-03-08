@@ -1,7 +1,7 @@
 package com.bd.academia.entity.tipoAvFisica;
 
-import java.sql.Date;
-import java.sql.Timestamp;
+
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -13,34 +13,36 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.bd.academia.core.entity.BaseEntity;
-import com.bd.academia.entity.academia.Academia;
+import com.bd.academia.entity.avaliacaoTipo.AvaliacaoTipo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Entity
-@Table(name = "tipoAvFisica")
+@Table(name = "tipo_av_fisica")
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class TipoAvFisica {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
-    private long idTipoAvFisica;
-    
+    private long id_tipo_av;
+
+
     @Getter
     @Setter
     @Column(nullable = false, length = 50)
     private String descricao;
 
-    // @Getter
-    // @Setter
-    // @OneToMany(mappedBy = "tipoAvFisica", fetch = FetchType.LAZY)
-    // private List<Academia> academias;
-    
+    @Getter
+    @Setter
+    @JsonIgnore
+    @OneToMany(mappedBy = "tipo_av_fisica", fetch = FetchType.LAZY)
+    private List<AvaliacaoTipo> avaliacao_tipo;
+
 }
