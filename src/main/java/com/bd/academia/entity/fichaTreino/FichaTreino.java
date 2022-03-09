@@ -1,65 +1,77 @@
 package com.bd.academia.entity.fichaTreino;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.util.List;
+import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.bd.academia.core.entity.BaseEntity;
-import com.bd.academia.entity.academia.Academia;
+import com.bd.academia.entity.aluno.Aluno;
+import com.bd.academia.entity.professor.Professor;
+import com.bd.academia.entity.treino.Treino;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Entity
-@Table(name = "fichaTreino")
-@AllArgsConstructor
+@Table(name = "ficha_treino")
 @NoArgsConstructor
-public class FichaTreino {
+@AllArgsConstructor
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+
+public class FichaTreino implements Serializable{
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
-    private long idTreino;
-    private long idAluno;
-    private long idProfessor; //fazer chave composta
-    
-    @Getter
-    @Setter
-    @Column(nullable = false, length = 50)
-    private Date dataTreino;
+    private Date data_treino;
+
+
 
     @Getter
     @Setter
     @Column(nullable = false, length = 50)
-    private String divisaoTreino;
+    private String divisao_treino;
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50 )
-    private Integer repeticoes;
+    @Column(nullable = false)
+    private long repeticoes;
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50)
-    private Integer series;
+    @Column(nullable = false)
+    private long series;
 
-     //fazer a chave composta
+    @Id
+    @Getter
+    @Setter
+    @ManyToOne
+    @JoinColumn(name = "id_treino",  nullable = false)
+    private Treino treino;
 
-    // @Getter
-    // @Setter
-    // @OneToMany(mappedBy = "fichaTreino", fetch = FetchType.LAZY)
-    // private List<Academia> academias;
-    
+    @Id
+    @Getter
+    @Setter
+    @ManyToOne
+    @JoinColumn(name = "id_aluno",  nullable = false)
+    private Aluno aluno;
+
+
+    @Id
+    @Getter
+    @Setter
+    @ManyToOne
+    @JoinColumn(name = "id_professor",  nullable = false)
+    private Professor professor;
 }
