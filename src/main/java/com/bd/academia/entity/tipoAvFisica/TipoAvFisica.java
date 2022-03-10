@@ -30,13 +30,14 @@ import lombok.Setter;
 public class TipoAvFisica {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_tipo_av")
     @Getter
     private long id_tipo_av;
 
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50)
+    @Column(name = "descricao",nullable = false, length = 50)
     private String descricao;
 
     @Getter

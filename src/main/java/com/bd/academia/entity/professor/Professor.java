@@ -1,14 +1,20 @@
 package com.bd.academia.entity.professor;
 
+import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.bd.academia.entity.fichaTreino.FichaTreino;
 import com.bd.academia.entity.pessoa.Pessoa;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -25,35 +31,42 @@ import lombok.Setter;
 @NoArgsConstructor
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 
-public class Professor {
+public class Professor implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
-    private long idProfessor;
+    @Column(name = "idprofessor")
+    private long idprofessor;
 
     @Getter
     @Setter
-    @Column(nullable = false)
+    @Column(name = "salario" , nullable = false)
     private double salario;
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50)
+    @Column(name = "periodo" , nullable = false, length = 50)
     private String periodo;
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50)
+    @Column(name = "formacao" , nullable = false, length = 50)
     private String formacao;
 
-     //fazer a foreign key idendereco
+
+
+
+    @Getter
+    @Setter
+    @ManyToOne
+    @JoinColumn(name = "idpessoa", nullable = false)
+    private Pessoa pessoa;
 
     @Getter
     @Setter
     @JsonIgnore
-    @ManyToOne
-    @JoinColumn (name="idPessoa", referencedColumnName = "idPessoa")
-    private Pessoa pessoa;
+    @OneToMany(mappedBy = "professor", fetch = FetchType.LAZY)
+    private List<FichaTreino> ficha_treino;
     
 }

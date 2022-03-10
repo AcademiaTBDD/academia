@@ -30,38 +30,45 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+
+
 public class ControleEntrada {
+
+
+   
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
-    private long idControle;
+    @Column(name = "idcontrole")
+    private long idcontrole;
     
 
     @Temporal(TemporalType.TIMESTAMP)
     @Getter
     @Setter
-    @Column(nullable = true)
+    @Column(name = "datahora_saida" , nullable = true)
     private Date datahora_saida;
 
 
     @Temporal(TemporalType.TIMESTAMP)
     @Getter
     @Setter
-    @Column(nullable = true)
+    @Column(name = "datahora_entrada" ,nullable = true)
     private Date datahora_entrada;
 
 
     @Getter
     @Setter
     @ManyToOne
-    @JoinColumn(name = "id_aluno",  nullable = false)
+    @JoinColumn(name = "idaluno",  nullable = false)
     private Aluno aluno;
 
     @Getter
     @Setter
     @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "id_academia",  nullable = false)
+    @JoinColumn(name = "idacademia",  nullable = false)
     private Academia academia;
 
 

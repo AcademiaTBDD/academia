@@ -13,6 +13,7 @@ import javax.persistence.Table;
 
 import com.bd.academia.core.entity.BaseEntity;
 import com.bd.academia.entity.academia.Academia;
+import com.bd.academia.entity.pessoa.Pessoa;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -30,32 +31,33 @@ public class Endereco extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idendereco")
     @Getter
     private long idEndereco;
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50)
+    @Column(name = "cep",nullable = false, length = 50)
     private String cep;
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50)
+    @Column(name = "cidade", nullable = false, length = 50)
     private String cidade;
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50)
+    @Column(name = "bairro", nullable = false, length = 50)
     private String bairro;
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50)
+    @Column(name = "rua", nullable = false, length = 50)
     private String rua;
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 2)
+    @Column(name = "uf", nullable = false, length = 2)
     private String uf;
 
     @Getter
@@ -63,4 +65,10 @@ public class Endereco extends BaseEntity {
     @JsonIgnore
     @OneToMany(mappedBy = "endereco", fetch = FetchType.LAZY)
     private List<Academia> academias;
+
+    @Getter
+    @Setter
+    @JsonIgnore
+    @OneToMany(mappedBy = "endereco", fetch = FetchType.LAZY)
+    private List<Pessoa> pessoas;
 }

@@ -35,16 +35,17 @@ public class PlanoAcademia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
+    @Column(name = "idplano")
     private long idPlano;
 
     @Getter
     @Setter
-    @Column(nullable = false)
-    private float valor_plano;
+    @Column(name = "valor_plano" , nullable = false)
+    private double valor_plano;
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50)
+    @Column(name = "tipo_plano" ,nullable = false, length = 50)
     private String tipo_plano;
 
 
