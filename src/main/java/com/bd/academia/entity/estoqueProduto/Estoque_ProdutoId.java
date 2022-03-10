@@ -24,9 +24,9 @@ public class Estoque_ProdutoId implements Serializable{
     
     @EqualsAndHashCode.Include
     @Getter
-    private Long id_produto;
+    private Long idproduto;
 
     @EqualsAndHashCode.Include
     @Getter
-    private Long id_academia;
+    private Long idacademia;
 }

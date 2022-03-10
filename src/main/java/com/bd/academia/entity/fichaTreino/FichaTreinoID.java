@@ -1,6 +1,9 @@
-package com.bd.academia.entity.avaliacaoTipo;
+package com.bd.academia.entity.fichaTreino;
 
 import java.io.Serializable;
+
+
+
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -16,15 +19,19 @@ import lombok.Setter;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 
 
-public class AvaliacaoTipoID  implements Serializable{
+public class FichaTreinoID implements Serializable{
 
+
+  
+    @EqualsAndHashCode.Include
+    @Getter
+    private Long idaluno;
 
     @EqualsAndHashCode.Include
     @Getter
-    private Long idavaliacao;
+    private Long data_treino;
 
     @EqualsAndHashCode.Include
     @Getter
-    private Long id_tipo_av;
-
+    private Long idtreino;
 }

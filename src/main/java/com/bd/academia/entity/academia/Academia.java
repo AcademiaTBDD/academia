@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import com.bd.academia.core.entity.BaseEntity;
 import com.bd.academia.entity.estoqueProduto.Estoque_Produto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.bd.academia.entity.controleEntrada.ControleEntrada;
 import com.bd.academia.entity.endereco.Endereco;
 
@@ -28,32 +29,34 @@ import lombok.Setter;
 @Table(name = "academia")
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Academia extends BaseEntity{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
-    private long idAcademia;
+    @Column(name = "idacademia")
+    private long idacademia;
     
     @Getter
     @Setter
-    @Column(nullable = false, length = 50)
+    @Column(name = "nome", nullable = false, length = 50)
     private String nome;
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50)
+    @Column(name = "complemento", nullable = false, length = 50)
     private String complemento;
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50)
+    @Column(name = "cnpj" , nullable = false, length = 50)
     private String cnpj;
 
     @Getter
     @Setter
     @ManyToOne
-    @JoinColumn(name = "id_endereco", nullable = false)
+    @JoinColumn(name = "idendereco", nullable = false)
     private Endereco endereco;
 
 
@@ -61,12 +64,12 @@ public class Academia extends BaseEntity{
     @Setter
     @JsonIgnore
     @OneToMany(mappedBy = "academia", fetch = FetchType.LAZY)
-    private List<Estoque_Produto> estoque_Produtos;
+    private List<Estoque_Produto> estoque_produtos;
 
 
     @Getter
     @Setter
     @JsonIgnore
     @OneToMany(mappedBy = "academia", fetch = FetchType.LAZY)
-    private List<ControleEntrada> controle_Entrada;
+    private List<ControleEntrada> controle_entrada;
 }

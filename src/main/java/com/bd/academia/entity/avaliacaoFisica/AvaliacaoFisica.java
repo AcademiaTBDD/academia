@@ -34,20 +34,21 @@ public class AvaliacaoFisica {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
+    @Column(name = "idavaliacao")
     private long idavaliacao;
 
 
     @Getter
     @Setter
     @ManyToOne
-    @JoinColumn(name = "id_aluno",  nullable = false)
+    @JoinColumn(name = "idaluno",  nullable = false)
     private Aluno aluno;
 
 
    
     @Getter
     @Setter
-    @Column(nullable = false)
+    @Column(name = "datahora_entrada",nullable = false)
     private Date datahora_entrada;
 
 

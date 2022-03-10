@@ -32,7 +32,7 @@ public class ServEstoqueProduto {
    
     public String remover(Estoque_Produto estoque_Produto) {
 
-        repEstoque_Produto.delete(estoque_Produto);;
+        repEstoque_Produto.delete(estoque_Produto);
 
         return "Produto removido com sucesso!";
     }

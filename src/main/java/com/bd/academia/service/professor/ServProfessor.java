@@ -27,7 +27,7 @@ public class ServProfessor {
     }
 
     public Professor atualizar(Professor professor) {
-        validaProfessorById(professor.getIdProfessor());
+        validaProfessorById(professor.getIdprofessor());
 
         return cadastrar(professor);
     }

@@ -29,7 +29,7 @@ public class ServTreino {
     }
 
     public Treino atualizar(Treino treino) {
-        validaTreinoById(treino.getIdTreino());
+        validaTreinoById(treino.getIdtreino());
 
         return cadastrar(treino);
     }

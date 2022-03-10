@@ -1,5 +1,8 @@
 package com.bd.academia.entity.treino;
 
+
+
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -8,12 +11,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.bd.academia.core.entity.BaseEntity;
+
+import com.bd.academia.entity.fichaTreino.FichaTreino;
 import com.bd.academia.entity.treino.Treino;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -33,20 +36,20 @@ public class Treino {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
-    private long idTreino;
+    @Column(name = "idtreino")
+    private long idtreino;
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50)
+    @Column(name = "nome_treino",nullable = false, length = 50)
     private String nomeTreino;
 
 
-    // @Getter
-    // @Setter
-    // @JsonIgnore
-    // @ManyToOne
-    // @JoinColumn (name="idTreino")
-    // private ;
+    @Getter
+    @Setter
+    @JsonIgnore
+    @OneToMany(mappedBy = "treino", fetch = FetchType.LAZY)
+    private List<FichaTreino> fichatreino;
 
 
     

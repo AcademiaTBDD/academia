@@ -28,18 +28,20 @@ public class Estoque_Produto  {
 
     @Id
     @Getter
-    private long id_produto;
+    @Column(name = "idproduto")
+    private long idproduto;
     @ManyToOne
-    @JoinColumn(name = "id_produto", nullable = false, insertable = false, updatable = false )
+    @JoinColumn(name = "idproduto", nullable = false, insertable = false, updatable = false )
     private Produto produto;
 
 
 
     @Id
     @Getter
-    private long id_academia;
+    @Column(name = "idacademia")
+    private long idacademia;
     @ManyToOne
-    @JoinColumn(name = "id_academia", nullable = false, insertable = false, updatable = false )
+    @JoinColumn(name = "idacademia", nullable = false, insertable = false, updatable = false )
     private Academia academia;
 
 

@@ -34,17 +34,18 @@ public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
+    @Column(name = "idproduto")
     private long idProduto;
 
     @Getter
     @Setter
-    @Column(nullable = false)
-    private float valor_produto;
+    @Column(name = "valor_produto" , nullable = false)
+    private double valor_produto;
 
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50)
+    @Column(name = "nome_produto" ,nullable = false, length = 50)
     private String nome_produto;
 
 

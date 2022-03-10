@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 import com.bd.academia.entity.avaliacaoFisica.AvaliacaoFisica;
 import com.bd.academia.entity.tipoAvFisica.TipoAvFisica;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,12 +22,13 @@ import lombok.Setter;
 @Table(name = "avaliacao_tipo")
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 
 public class AvaliacaoTipo {
     
     @Id
     @Getter
-    private long id_avaliacao;
+    private long idavaliacao;
     @ManyToOne
     @JoinColumn(name = "idavaliacao", nullable = false, insertable = false, updatable = false )
     private AvaliacaoFisica avaliacao_fisica;
@@ -44,5 +46,5 @@ public class AvaliacaoTipo {
     @Getter
     @Setter
     @Column(nullable = false)
-    private float quantidade;
+    private int quantidade;
 }

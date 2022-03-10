@@ -1,5 +1,6 @@
 package com.bd.academia.entity.pessoa;
 
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -13,9 +14,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.bd.academia.core.entity.BaseEntity;
-import com.bd.academia.entity.academia.Academia;
+import com.bd.academia.entity.aluno.Aluno;
 import com.bd.academia.entity.endereco.Endereco;
+import com.bd.academia.entity.professor.Professor;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -34,37 +35,50 @@ public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
+    @Column(name = "idpessoa")
     private long idPessoa;
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50)
+    @Column(name = "nome" , nullable = false, length = 50)
     private String nome;
 
     @Getter
     @Setter
-    @Column(nullable = false)
+    @Column(name = "idade" , nullable = false)
     private long idade;
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50)
+    @Column(name = "telefone" , nullable = false, length = 50)
     private String telefone;
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 50)
+    @Column(name = "cpf" , nullable = false, length = 50)
     private String cpf;
 
     @Getter
     @Setter
-    @Column(nullable = false, length = 1)
+    @Column(name = "sexo" , nullable = false, length = 1)
     private Character sexo;
 
     @Getter
     @Setter
-    @JsonIgnore
     @ManyToOne
-    @JoinColumn (name="idEndereco", referencedColumnName = "idEndereco")
+    @JoinColumn(name = "idendereco", nullable = false)
     private Endereco endereco;
+
+    @Getter
+    @Setter
+    @JsonIgnore
+    @OneToMany(mappedBy = "pessoa", fetch = FetchType.LAZY)
+    private List<Aluno> alunos;
+
+
+    @Getter
+    @Setter
+    @JsonIgnore
+    @OneToMany(mappedBy = "pessoa", fetch = FetchType.LAZY)
+    private List<Professor> professores;
 }
